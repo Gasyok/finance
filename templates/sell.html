@@ -1,0 +1,23 @@
+{% extends "layout.html" %} {% block title %} Sell {% endblock %} {% block main
+%}
+<form action="/sell" method="post">
+  <div class="mb-3">
+    <select name="symbol">
+      <option value="" disabled selected>Symbol</option>
+      {% for symb in symbols %}
+      <option value="{{symb["symbol"]}}">{{symb["symbol"]}}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <input
+      autocomplete="off"
+      class="form-control mx-auto w-auto"
+      placeholder="Shares"
+      type="text"
+      name="shares"
+    />
+  </div>
+  <button class="btn btn-primary" type="submit">Sell</button>
+</form>
+{% endblock %}
